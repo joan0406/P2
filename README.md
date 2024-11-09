@@ -136,15 +136,24 @@ Ejercicios
   continuación, una captura de `wavesurfer` en la que se vea con claridad la señal temporal, el contorno de
   potencia y la tasa de cruces por cero, junto con el etiquetado manual de los segmentos.
 
+	![Wavesurfer](img/cuestion1.png)
+	![Wavesurfer](img/captura2.png)
 
 - A la vista de la gráfica, indique qué valores considera adecuados para las magnitudes siguientes:
 
 	* Incremento del nivel potencia en dB, respecto al nivel correspondiente al silencio inicial, para
 	  estar seguros de que un segmento de señal se corresponde con voz.
+	  
+	  Veient el gràfic podem clasificar que el señal deixa de ser silenci a partir dels 40dB.
+
 
 	* Duración mínima razonable de los segmentos de voz y silencio.
+	
+	No considerem silenci mostres mes curtes de 50ms, ja que poden ser una petita pausa del fraseig.
 
 	* ¿Es capaz de sacar alguna conclusión a partir de la evolución de la tasa de cruces por cero?
+		
+	Els pics alts en la taxa de creuaments per zero corresponen a sons fricatius o no sonors, com les "s", mentre que els trams baixos indiquen vocals o sons sonors. A més, la ZCR baixa sol coincidir amb un augment de potència en la veu.
 
 
 ### Desarrollo del detector de actividad vocal
@@ -154,12 +163,19 @@ Ejercicios
 
 - Inserte una gráfica en la que se vea con claridad la señal temporal, el etiquetado manual y la detección
   automática conseguida para el fichero grabado al efecto. 
+  ![Prueba.var](img/pruebavar.png)
+  ![Prueba.var](img/pruebalab.png)
+
+  
+
 
 - Explique, si existen. las discrepancias entre el etiquetado manual y la detección automática.
+El automatico ha sido mucho más detallista que nosotros en el etiquetaje manual.
 
 - Evalúe los resultados sobre la base de datos `db.v4` con el script `vad_evaluation.pl` e inserte a 
   continuación las tasas de sensibilidad (*recall*) y precisión para el conjunto de la base de datos (sólo
   el resumen).
+  ![evaluation](img/evaluation.png)
 
 
 ### Trabajos de ampliación
@@ -175,11 +191,16 @@ Ejercicios
 - Si ha usado `docopt_c` para realizar la gestión de las opciones y argumentos del programa `vad`, inserte
   una captura de pantalla en la que se vea el mensaje de ayuda del programa.
 
+  ![evaluation](img/vad.png)
+
 
 ### Contribuciones adicionales y/o comentarios acerca de la práctica
 
 - Indique a continuación si ha realizado algún tipo de aportación suplementaria (algoritmos de detección o 
   parámetros alternativos, etc.).
+  Hem realitzat una funció per provar diversos valors de threshold (valor de alfa) i així poder veure quin és l'optim per la nostra clasificació del senyal, aquests valors els hem ordenat de menys optim a mes optim. Poc a poc vam anar reduint l'interval de theshold que analitzavem, i finalment vam decidir que el millor, donats els nostres calculs, és el de 5.1.
+  ![Rang Alfa](img/rangalfa.png)
+  
 
 - Si lo desea, puede realizar también algún comentario acerca de la realización de la práctica que
   considere de interés de cara a su evaluación.
